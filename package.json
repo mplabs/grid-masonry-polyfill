@@ -1,0 +1,37 @@
+{
+  "name": "grid-masonry-polyfill",
+  "version": "1.0.0",
+  "description": "A lightweight polyfill for CSS grid masonry layout",
+  "keywords": [
+    "grid",
+    "masonry",
+    "polyfill",
+    "css",
+    "layout"
+  ],
+  "author": "Felix Dürrwald",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rollup -c",
+    "prepare": "npm run build",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mplabs/grid-masonry-polyfill.git"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-typescript": "^12.1.2",
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "rollup": "^4.39.0",
+    "rollup-plugin-dts": "^6.2.1",
+    "ts-jest": "^29.3.1",
+    "typescript": "^5.8.3"
+  }
+}
