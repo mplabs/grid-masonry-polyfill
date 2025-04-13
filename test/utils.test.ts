@@ -11,10 +11,10 @@ describe('debounce', () => {
         expect(fn).not.toBeCalled()
 
         jest.advanceTimersByTime(199)
-        expect(fn).not.toBeCalled()
+        expect(fn).not.toHaveBeenCalled()
 
         jest.advanceTimersByTime(1)
-        expect(fn).toBeCalledTimes(1)
+        expect(fn).toHaveBeenCalledTimes(1)
     })
 
     it('should reset the timer if called again before delay', () => {
@@ -27,10 +27,10 @@ describe('debounce', () => {
         jest.advanceTimersByTime(100)
         debounced() // resets again
         jest.advanceTimersByTime(299)
-        expect(fn).not.toBeCalled()
+        expect(fn).not.toHaveBeenCalled()
 
         jest.advanceTimersByTime(1)
-        expect(fn).toBeCalledTimes(1)
+        expect(fn).toHaveBeenCalledTimes(1)
     })
 
     it('should pass arguments correctly', () => {
