@@ -23,7 +23,7 @@ This is in contrast to how this feature will work in supported browsers, where i
 Both approaches will cause a tightly packed layout with strict row tracks.
 
 ```CSS
-.grid {
+.grid-rows-\\[masonry\\] {
     display: grid;
     gap: 10px;
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
