@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS Grid Masonry Polyfill</title>
+        <script type="module" src="dist/index.js"></script>
+        <style>
+            .grid {
+                display: grid;
+                gap: 10px;
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                grid-template-rows: masonry;
+            }
+
+            .item {
+                background: #d608;
+                outline: solid 2px #d60;
+                color: white;
+                padding: 8px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="grid grid-rows-[masonry]">
+            <div class="item" style="block-size: 2em">1</div>
+            <div class="item" style="block-size: 3em">2</div>
+            <div class="item" style="block-size: 1.6em">3</div>
+            <div class="item" style="block-size: 4em">4</div>
+            <div class="item" style="block-size: 2.2em">5</div>
+            <div class="item" style="block-size: 3em">6</div>
+            <div class="item" style="block-size: 4.5em">7</div>
+            <div class="item" style="block-size: 1em">8</div>
+            <div class="item" style="block-size: 3.5em">9</div>
+            <div class="item" style="block-size: 2.8em">10</div>
+        </div>
+    </body>
+</html>

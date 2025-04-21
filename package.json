@@ -1,6 +1,6 @@
 {
   "name": "grid-masonry-polyfill",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A lightweight polyfill for CSS grid masonry layout",
   "keywords": [
     "grid",
@@ -21,6 +21,7 @@
   "scripts": {
     "build": "rollup -c --bundleConfigAsCjs",
     "prepare": "npm run build",
+    "serve": "http-server .",
     "test": "jest"
   },
   "repository": {

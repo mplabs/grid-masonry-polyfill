@@ -7,7 +7,7 @@ interface MasonryGrid {
     ncol: number
 }
 
-const gridElements = Array.from(document.querySelectorAll<HTMLElement>('.grid-rows-[masonry]'))
+const gridElements = Array.from(document.querySelectorAll<HTMLElement>('.grid-rows-\\[masonry\\]'))
 let grids: MasonryGrid[] = []
 
 // CSS Grid masonry layout polyfill for browsers that don't support it natively
