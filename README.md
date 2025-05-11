@@ -31,6 +31,19 @@ Both approaches will cause a tightly packed layout with strict row tracks.
 }
 ```
 
+## Creating a column-based masonry layout
+
+To create a masonry layout with columns as the masonry axis, set `grid-template-columns: masonry` and define your row tracks with `grid-template-rows`:
+
+```CSS
+.grid-columns-masonry {
+    display: grid;
+    gap: 10px;
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: masonry;
+}
+```
+
 ```HTML
 <div class="grid">
   <div class="item" style="block-size: 2em;"></div>
@@ -45,10 +58,6 @@ Both approaches will cause a tightly packed layout with strict row tracks.
   <div class="item" style="block-size: 2.8em;"></div>
 </div>
 ```
-
-## Restrictions
-
-Creating a masonry layout with items loading into rows is possible according to the specification, but as of now not implemented in this polyfill.
 
 ## References
 

@@ -1,6 +1,6 @@
 {
   "name": "grid-masonry-polyfill",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A lightweight polyfill for CSS grid masonry layout",
   "keywords": [
     "grid",

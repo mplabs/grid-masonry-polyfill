@@ -6,33 +6,169 @@
         <title>CSS Grid Masonry Polyfill</title>
         <script type="module" src="dist/index.js"></script>
         <style>
-            .grid {
+            body {
+                font-family: system-ui, -apple-system, sans-serif;
+                line-height: 1.5;
+            }
+            
+            #app {
+                max-width: 60ch;
+                margin: 0 auto;
+                padding: 1rem;
+            }
+
+            .header {
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+
+            .header h1 {
+                font-size: 2.5rem;
+                color: #1f2937;
+                margin-bottom: 1rem;
+            }
+
+            .header p {
+                max-width: 42rem;
+                margin: 0 auto 1.5rem;
+                color: #4b5563;
+                font-size: 1.125rem;
+            }
+
+            .github-link {
+                display: inline-block;
+                background: #24292e;
+                color: white;
+                padding: 0.5rem 1rem;
+                border-radius: 6px;
+                text-decoration: none;
+                font-weight: 500;
+                transition: background 0.2s;
+            }
+
+            .github-link:hover {
+                background: #3a3f44;
+            }
+
+            .example {
+                margin: 3rem 0;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                padding: 1.5rem;
+                background: #f9f9f9;
+            }
+
+            h2 {
+                margin-top: 0;
+                color: #333;
+                border-bottom: 2px solid #eee;
+                padding-bottom: 0.5rem;
+            }
+
+            .description {
+                margin-bottom: 1.5rem;
+                color: #666;
+            }
+
+            /* Row masonry grid */
+            .row-masonry {
                 display: grid;
                 gap: 10px;
                 grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
                 grid-template-rows: masonry;
             }
 
-            .item {
-                background: #d608;
-                outline: solid 2px #d60;
+            .row-item {
+                background: linear-gradient(135deg, #6366f1, #8b5cf6);
+                border-radius: 6px;
                 color: white;
-                padding: 8px;
+                padding: 12px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+
+            /* Column masonry grid */
+            .column-masonry {
+                display: grid;
+                gap: 15px;
+                grid-template-rows: repeat(4, auto);
+                grid-auto-flow: column;
+                grid-template-columns: masonry;
+                height: 400px;
+                width: 100%;
+                overflow-x: auto;
+            }
+
+            .column-item {
+                background: linear-gradient(135deg, #10b981, #059669);
+                border-radius: 6px;
+                color: white;
+                padding: 12px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                height: 80px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.2rem;
+                font-weight: bold;
             }
         </style>
     </head>
     <body>
-        <div class="grid grid-rows-[masonry]">
-            <div class="item" style="block-size: 2em">1</div>
-            <div class="item" style="block-size: 3em">2</div>
-            <div class="item" style="block-size: 1.6em">3</div>
-            <div class="item" style="block-size: 4em">4</div>
-            <div class="item" style="block-size: 2.2em">5</div>
-            <div class="item" style="block-size: 3em">6</div>
-            <div class="item" style="block-size: 4.5em">7</div>
-            <div class="item" style="block-size: 1em">8</div>
-            <div class="item" style="block-size: 3.5em">9</div>
-            <div class="item" style="block-size: 2.8em">10</div>
+        <div id="app">
+            <div class="header">
+                <h1>CSS Grid Masonry Polyfill</h1>
+                <p>
+                    A lightweight JavaScript polyfill that brings masonry layout support to CSS Grid for browsers
+                    that don't yet support <code>grid-template-rows: masonry</code> or <code>grid-template-columns: masonry</code>.
+                    This polyfill detects browser support and only applies when needed.
+                </p>
+                <a href="https://github.com/mplabs/grid-masonry-polyfill" class="github-link" target="_blank">View on GitHub</a>
+            </div>
+
+            <div class="example">
+                <h2>Row Masonry Layout</h2>
+                <div class="description">
+                    Items flow in columns but adjust their vertical position to fill gaps.
+                </div>
+                <div class="row-masonry grid-rows-[masonry]">
+                    <div class="row-item" style="block-size: 60px">1</div>
+                    <div class="row-item" style="block-size: 100px">2</div>
+                    <div class="row-item" style="block-size: 80px">3</div>
+                    <div class="row-item" style="block-size: 120px">4</div>
+                    <div class="row-item" style="block-size: 70px">5</div>
+                    <div class="row-item" style="block-size: 90px">6</div>
+                    <div class="row-item" style="block-size: 140px">7</div>
+                    <div class="row-item" style="block-size: 50px">8</div>
+                    <div class="row-item" style="block-size: 110px">9</div>
+                    <div class="row-item" style="block-size: 85px">10</div>
+                </div>
+            </div>
+
+            <div class="example">
+                <h2>Column Masonry Layout</h2>
+                <div class="description">
+                    Items flow in rows but adjust their horizontal position to fill gaps.
+                    Scroll horizontally to see more items.
+                </div>
+                <div class="column-masonry grid-columns-[masonry]">
+                    <div class="column-item" style="inline-size: 100px">1</div>
+                    <div class="column-item" style="inline-size: 150px">2</div>
+                    <div class="column-item" style="inline-size: 180px">3</div>
+                    <div class="column-item" style="inline-size: 120px">4</div>
+                    <div class="column-item" style="inline-size: 200px">5</div>
+                    <div class="column-item" style="inline-size: 140px">6</div>
+                    <div class="column-item" style="inline-size: 160px">7</div>
+                    <div class="column-item" style="inline-size: 90px">8</div>
+                    <div class="column-item" style="inline-size: 170px">9</div>
+                    <div class="column-item" style="inline-size: 130px">10</div>
+                    <div class="column-item" style="inline-size: 110px">11</div>
+                    <div class="column-item" style="inline-size: 190px">12</div>
+                    <div class="column-item" style="inline-size: 120px">13</div>
+                    <div class="column-item" style="inline-size: 160px">14</div>
+                    <div class="column-item" style="inline-size: 140px">15</div>
+                    <div class="column-item" style="inline-size: 180px">16</div>
+                </div>
+            </div>
         </div>
     </body>
 </html>
